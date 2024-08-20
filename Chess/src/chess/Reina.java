@@ -11,14 +11,25 @@ import java.util.LinkedList;
  * @author mateo
  */
 public class Reina extends Pieza {
+    private static final int dimF = 27;
+
+    public Reina(String color, Posicion pos) {
+        super(color, pos, dimF);
+    }
+    
     @Override
     public void posicionesDisponibles(){
-        Alfil A = new Alfil();
-        Torre T = new Torre();
+        Alfil A = new Alfil(this.getColor(), this.getPos());
+        Torre T = new Torre(this.getColor(), this.getPos());
         A.posicionesDisponibles();
-        LinkedList<Posicion> Posiciones = A.getPosiciones();
+        Posicion[] PosicionesAlf = A.getPosiciones();
+        for (int i = 0; i < A.getDimL(); i++){
+            super.posibleElem(PosicionesAlf[i]);
+        }
         T.posicionesDisponibles();
-        Posiciones.addAll(T.getPosiciones());
-        super.setPosiciones(Posiciones);
+        Posicion[] PosicionesTor = T.getPosiciones();
+        for (int i = 0; i < T.getDimL(); i++){
+            super.posibleElem(PosicionesTor[i]);
+        }
     }
 }

@@ -10,6 +10,12 @@ package chess;
  * @author mateo
  */
 public class Rey extends Pieza {
+    private static final int dimF = 8;
+
+    public Rey(String color, Posicion pos) {
+        super(color, pos, dimF);
+    }
+    
     @Override
     public void posicionesDisponibles(){
         int latBase = this.getPos().getLatitud();

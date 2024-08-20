@@ -11,6 +11,11 @@ package chess;
  */
 public class Peon extends Pieza {
     private boolean primerMov = true;
+    private static final int dimF = 4;
+
+    public Peon(String color, Posicion pos) {
+        super(color, pos, dimF);
+    }
     
     @Override
     public void posicionesDisponibles(){ //Falta implementar que tome en diagonal
@@ -36,5 +41,9 @@ public class Peon extends Pieza {
 
     public void setPrimerMov(boolean primerMov) {
         this.primerMov = primerMov;
+    }
+
+    public static int getDimF() {
+        return dimF;
     }
 }

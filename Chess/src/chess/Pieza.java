@@ -6,29 +6,40 @@
 package chess;
 
 
-import java.util.LinkedList;
 /**
  *
  * @author mateo
  */
 public abstract class Pieza {
     private String color;
-    private Posicion pos;
-    private LinkedList<Posicion> Posiciones = new LinkedList<>();
+    private Posicion pos;               //Posicion actual
+    private Posicion[] Posiciones; //Posiciones disponibles
+    private int dimL;
     
     public abstract void posicionesDisponibles();
-    
-    public boolean isPosible (Posicion x){
-        if (this.Posiciones.contains(x)){
-            return(true);
-        } else {
-            return(false);
-        }
+
+    public Pieza(String color, Posicion pos, int dimF) {
+        this.color = color;
+        this.pos = pos;
+        this.Posiciones = new Posicion[dimF];
+        this.dimL = 0;
     }
     
+    // Checkea si la posicion a la que quiere mover el usuario esta habilitada para la pieza
+    public boolean isPosible (Posicion x){
+        for (int i = 0; i < this.dimL; i++){
+            if (Posiciones[i] == x){
+                return(true);
+            }
+        }
+        return(false);
+    }
+    
+    //In-Bounds checker
     public boolean posibleElem(Posicion x){
         if ((x.getLatitud() < 8 && x.getLatitud() > -1) && (x.getLongitud() < 8 && x.getLongitud() > -1)){
-            this.Posiciones.add(x);
+            this.Posiciones[this.dimL] = x;
+            this.dimL++;
             return(true);
         } else {
             return(false);
@@ -51,11 +62,11 @@ public abstract class Pieza {
         this.pos = pos;
     }
 
-    public LinkedList<Posicion> getPosiciones() {
+    public Posicion[] getPosiciones() {
         return Posiciones;
     }
 
-    public void setPosiciones(LinkedList<Posicion> Posiciones) {
-        this.Posiciones = Posiciones;
+    public int getDimL() {
+        return dimL;
     }
 }

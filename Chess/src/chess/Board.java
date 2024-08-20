@@ -10,5 +10,5 @@ package chess;
  * @author mateo
  */
 public class Board {
-    private Pieza[][] tablero;
+    private Pieza[][] tablero = new Pieza[8][8];
 }

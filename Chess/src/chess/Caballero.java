@@ -10,6 +10,13 @@ package chess;
  * @author mateo
  */
 public class Caballero extends Pieza{
+    private static final int dimF = 8;
+
+    public Caballero(String color, Posicion pos) {
+        super(color, pos, dimF);
+    }
+    
+    
     @Override
     public void posicionesDisponibles(){ 
         /* Debe de ser imposible hacer codigo mas feo que este, 

@@ -10,7 +10,11 @@ package chess;
  * @author mateo
  */
 public class Alfil extends Pieza {
-    
+    private static final int dimF = 13;
+
+    public Alfil(String color, Posicion pos) {
+        super(color, pos, dimF);
+    }
     @Override
     public void posicionesDisponibles(){
         int longBase = this.getPos().getLongitud();

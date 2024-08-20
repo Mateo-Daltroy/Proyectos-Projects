@@ -33,5 +33,10 @@ public class Posicion {
     public void setLongitud(int longitud) {
         this.longitud = longitud;
     }
+
+    @Override
+    public String toString() {
+        return ("[" + latitud + ", " + longitud + ']');
+    }
     
 }

@@ -10,6 +10,11 @@ package chess;
  * @author mateo
  */
 public class Torre extends Pieza {
+    private static final int dimF = 14;
+
+    public Torre(String color, Posicion pos) {
+        super(color, pos, dimF);
+    }
     @Override
     public void posicionesDisponibles(){
         int longBase = this.getPos().getLongitud();
