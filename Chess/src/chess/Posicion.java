@@ -13,7 +13,7 @@ public class Posicion {
     private int latitud;
     private int longitud;
 
-    public Posicion(int latitud, int longitud) {
+    public Posicion(int longitud, int latitud) {
         this.latitud = latitud;
         this.longitud = longitud;
     }
